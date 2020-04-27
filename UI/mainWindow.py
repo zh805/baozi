@@ -8,6 +8,9 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtWidgets import QMainWindow, QApplication
+import add_pic
+import sys
 
 
 
@@ -32,31 +35,31 @@ class Ui_mainWindow(object):
         self.horizontalLayout = QtWidgets.QHBoxLayout(self.layoutWidget)
         self.horizontalLayout.setContentsMargins(0, 0, 0, 0)
         self.horizontalLayout.setObjectName("horizontalLayout")
-        self.pushButton_3 = QtWidgets.QPushButton(self.layoutWidget)
+        self.tuku_bd = QtWidgets.QPushButton(self.layoutWidget)
         font = QtGui.QFont()
         font.setFamily("宋体")
         font.setPointSize(20)
-        self.pushButton_3.setFont(font)
-        self.pushButton_3.setObjectName("pushButton_3")
-        self.horizontalLayout.addWidget(self.pushButton_3)
+        self.tuku_bd.setFont(font)
+        self.tuku_bd.setObjectName("tuku_bd")
+        self.horizontalLayout.addWidget(self.tuku_bd)
         spacerItem = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout.addItem(spacerItem)
-        self.pushButton_4 = QtWidgets.QPushButton(self.layoutWidget)
+        self.xunlian_bd = QtWidgets.QPushButton(self.layoutWidget)
         font = QtGui.QFont()
         font.setFamily("宋体")
         font.setPointSize(20)
-        self.pushButton_4.setFont(font)
-        self.pushButton_4.setObjectName("pushButton_4")
-        self.horizontalLayout.addWidget(self.pushButton_4)
+        self.xunlian_bd.setFont(font)
+        self.xunlian_bd.setObjectName("xunlian_bd")
+        self.horizontalLayout.addWidget(self.xunlian_bd)
         spacerItem1 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout.addItem(spacerItem1)
-        self.pushButton = QtWidgets.QPushButton(self.layoutWidget)
+        self.shibie_bd = QtWidgets.QPushButton(self.layoutWidget)
         font = QtGui.QFont()
         font.setFamily("宋体")
         font.setPointSize(20)
-        self.pushButton.setFont(font)
-        self.pushButton.setObjectName("pushButton")
-        self.horizontalLayout.addWidget(self.pushButton)
+        self.shibie_bd.setFont(font)
+        self.shibie_bd.setObjectName("shibie_bd")
+        self.horizontalLayout.addWidget(self.shibie_bd)
         self.label_2 = QtWidgets.QLabel(self.centralwidget)
         self.label_2.setGeometry(QtCore.QRect(245, 490, 301, 41))
         font = QtGui.QFont()
@@ -87,9 +90,22 @@ class Ui_mainWindow(object):
         _translate = QtCore.QCoreApplication.translate
         mainWindow.setWindowTitle(_translate("mainWindow", "储粮真菌孢子识别软件"))
         self.label.setText(_translate("mainWindow", "储粮真菌孢子识别软件"))
-        self.pushButton_3.setText(_translate("mainWindow", "图库"))
-        self.pushButton_4.setText(_translate("mainWindow", "训练"))
-        self.pushButton.setText(_translate("mainWindow", "识别"))
+        self.tuku_bd.setText(_translate("mainWindow", "图库"))
+        self.tuku_bd.clicked.connect(self.jump_to_dialog_add)
+        self.xunlian_bd.setText(_translate("mainWindow", "训练"))
+        self.shibie_bd.setText(_translate("mainWindow", "识别"))
         self.label_2.setText(_translate("mainWindow", "国家粮食和物资储备局科学研究院"))
 
-# import logo_rc
+    def jump_to_dialog_add(self):
+        # self.MainWindow.hide()
+        form_add = QtWidgets.QDialog()
+        ui = add_pic.Ui_Dialog_add()
+        ui.setupUi(form_add)
+        form_add.show()
+        form_add.exec_()
+        # self.MainWindow.show()
+
+    # def exit(self):
+    #     self.MainWindow.close()
+
+
