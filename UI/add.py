@@ -100,7 +100,7 @@ class Ui_Form(object):
         self.horizontalLayout_3.addWidget(self.lineEdit_3)
         self.pushButton_3 = QtWidgets.QPushButton(self.layoutWidget)
         self.pushButton_3.setObjectName("pushButton_3")
-        self.pushButton_3.clicked.connect(self.read_file)
+        self.pushButton_3.clicked.connect(self.read_folder_pic)
         self.horizontalLayout_3.addWidget(self.pushButton_3)
         self.pushButton_4 = QtWidgets.QPushButton(self.layoutWidget)
         self.pushButton_4.setObjectName("pushButton_4")
@@ -154,9 +154,9 @@ class Ui_Form(object):
         self.pushButton_6.setText(_translate("Form", "浏览"))
         self.pushButton_5.setText(_translate("Form", "添加"))
 
-    def read_file(self):
-        # 选取文件
-        filename, filetype = QFileDialog.getOpenFileName(self, "选取文件夹", "/")
+    def read_folder_pic(self):
+        filename = QFileDialog.getExistingDirectory(self, "选择图片文件夹","/")
         self.lineEdit_3.setText(filename)
+
 
 

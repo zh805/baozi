@@ -26,7 +26,12 @@ class add_win(QtWidgets.QWidget, Ui_Form):
 
     def write_folder_pic(self):
         from_path = self.lineEdit_3.text()
-        to_path = r'E:\baoziUI\baozi\UI\faster\data\VOCdevkit2007\VOC2007\JPEGImages'
+        # to_path = r'E:\baoziUI\baozi\UI\faster\data\VOCdevkit2007\VOC2007\JPEGImages'
+        root_path = os.getcwd()
+        pic_path = 'faster\data\VOCdevkit2007\VOC2007\JPEGImages'
+        to_path = os.path.join(root_path, pic_path)
+        # print(to_path)
+
 
         src_files = os.listdir(from_path)
         for file_name in src_files:
@@ -50,7 +55,10 @@ class add_win(QtWidgets.QWidget, Ui_Form):
 
     def write_folder_xml(self):
         from_path = self.lineEdit_4.text()
-        to_path = r'E:\baoziUI\baozi\UI\faster\data\VOCdevkit2007\VOC2007\Annotations'
+        # to_path = r'E:\baoziUI\baozi\UI\faster\data\VOCdevkit2007\VOC2007\Annotations'
+        root_path = os.getcwd()
+        xml_path = 'faster\data\VOCdevkit2007\VOC2007\Annotations'
+        to_path = os.path.join(root_path, xml_path)
 
         src_files = os.listdir(from_path)
         for file_name in src_files:
@@ -72,7 +80,8 @@ class add_win(QtWidgets.QWidget, Ui_Form):
                 newname = to_path + '/' + b[i] + '.xml'
                 os.rename(xml_path, newname)
 
-        txt_path = r'E:\baoziUI\baozi\UI\faster\data\VOCdevkit2007\VOC2007\ImageSets\Main\train.txt'
+        txt_p = 'faster\data\VOCdevkit2007\VOC2007\ImageSets\Main'
+        txt_path = os.path.join(root_path, txt_p)
         f1 = open(txt_path,'w')
         for file_name in os.listdir(to_path):
             f1.write(file_name.rstrip('.xml'))
