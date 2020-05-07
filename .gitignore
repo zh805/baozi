@@ -1,3 +1,5 @@
 .idea/*
 .vscode/*
 /UI/__pycache__
+/UI/faster/data/VOCdevkit2007/VOC2007/JPEGImages
+/UI/faster/data/VOCdevkit2007/VOC2007/Annotations
